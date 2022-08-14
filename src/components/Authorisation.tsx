@@ -1,6 +1,8 @@
-import { Login_form } from "forms/login_form";
+import { LoginForm } from "forms/login_form";
+import { RegisterForm } from "forms/register_form";
 import { Component, ReactNode } from "react";
 import { display_type } from "types";
+import "css/Authorisation.css";
 
 type state_type = {
   display: display_type;
@@ -11,12 +13,18 @@ export class Authorisation extends Component {
     display: "login",
   };
 
+  change_display(display: display_type) {
+    this.setState({
+      display,
+    });
+  }
+
   render(): ReactNode {
     switch (this.state.display) {
       case "login":
-        return <Login_form />;
+        return <LoginForm change_display={this.change_display.bind(this)} />;
       case "register":
-        return <Login_form />;
+        return <RegisterForm />;
     }
   }
 }

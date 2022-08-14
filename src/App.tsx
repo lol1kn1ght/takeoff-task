@@ -5,11 +5,13 @@ import "css/App.css";
 
 function App() {
   return (
-    <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/dashboard' element={<Dashboard />} />
-      <Route path='*' element={<Navigate to={"/"} />} />
-    </Routes>
+    <div className='content-container'>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='*' element={<Navigate to={"/"} />} />
+      </Routes>
+    </div>
   );
 }
 
