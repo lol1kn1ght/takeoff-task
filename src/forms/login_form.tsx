@@ -1,6 +1,7 @@
-import { is } from "immer/dist/internal";
+import axios from "axios";
+import { loading_plate } from "components/Loading";
 import { Component, FormEvent, ReactNode } from "react";
-import { display_type } from "types";
+import { display_type, user_type } from "types";
 
 type field_type = {
   value?: string;
@@ -10,6 +11,8 @@ type field_type = {
 type state_type = {
   username: field_type;
   password: field_type;
+  loading: false;
+  error_message?: string;
 };
 
 type elem_name_type = "username" | "password";
@@ -22,6 +25,7 @@ export class LoginForm extends Component<props_type> {
   state: state_type = {
     password: {},
     username: {},
+    loading: false,
   };
 
   handle_change(event: FormEvent<HTMLInputElement>) {
@@ -44,7 +48,28 @@ export class LoginForm extends Component<props_type> {
   }
 
   async login() {
-    console.log("LOGIN");
+    this.setState({
+      loading: true,
+    });
+    const { password, username } = this.state;
+
+    const request_link = `http://localhost:3001/users?username=${username.value}&password=${password.value}`;
+    const test_response = await axios.get(request_link);
+
+    const user_data = (test_response.data as user_type[] | undefined[])[0];
+
+    if (!user_data) {
+      this.setState({
+        error_message: "Вы указали некорректные данные! Попробуйте еще",
+        loading: false,
+        password: {
+          wrong: true,
+        },
+        username: {
+          wrong: true,
+        },
+      });
+    }
   }
 
   is_wrong() {
@@ -60,9 +85,13 @@ export class LoginForm extends Component<props_type> {
   }
 
   render(): ReactNode {
+    if (this.state.loading)
+      return <div className='authorisation-container'>{loading_plate}</div>;
     return (
       <div className='authorisation-container'>
-        <div className='authorisation-title-container'>Авторизация</div>
+        <div className='authorisation-title-container'>
+          <div>Авторизация</div>
+        </div>
 
         <div className='authorisation-forms-container'>
           <input
@@ -79,6 +108,11 @@ export class LoginForm extends Component<props_type> {
             onInput={this.handle_change.bind(this)}
             placeholder='Введите ваш пароль'
           />
+          {this.state.error_message ? (
+            <div className='authorisation-error-message'>
+              {this.state.error_message}
+            </div>
+          ) : undefined}
         </div>
 
         <div className='authorisation-buttons-container'>
