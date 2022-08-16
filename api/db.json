@@ -3,6 +3,18 @@
     {
       "username": "loli_knight",
       "password": "test",
+      "contacts": [
+        {
+          "name": "Владимир",
+          "number": "79192225555",
+          "id": 1
+        },
+        {
+          "name": "Артем",
+          "number": "79194448888",
+          "id": 1
+        }
+      ],
       "id": 1
     }
   ]

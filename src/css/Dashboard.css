@@ -1,0 +1,98 @@
+.dashboard-container {
+  width: 600px;
+  height: max-content;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  background-color: #f8f8ff;
+  padding-bottom: 150px;
+  align-self: flex-start;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 5px;
+}
+
+.dashboard-title-container {
+  font-size: 30px;
+  width: 80%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  justify-content: space-between;
+}
+
+.dashboard-contancts-container {
+  width: 80%;
+}
+
+.dashboard-buttons-container {
+  width: 80%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.create-button {
+  width: max-content;
+  height: 40px;
+  border-radius: 5px;
+  border-style: none;
+  background-color: rgb(50, 205, 50);
+}
+
+.create-button:hover {
+  cursor: pointer;
+  background-color: rgb(50, 205, 50, 0.5);
+  transition: background-color 0.5s;
+}
+.create-button:not(:hover) {
+  background-color: default;
+  transition: background-color 0.5s;
+}
+
+.contact-field {
+  width: 100%;
+  /* background-color: red; */
+  height: 60px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transform: size 10px;
+  outline: 1px solid rgb(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+  transition: 0.5s;
+}
+
+.contact-field:hover {
+  transform: scale(1.1);
+}
+
+.contact-info-container {
+  padding-left: 10px;
+  font-size: large;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 50%;
+}
+
+.contact-info-container:hover {
+  user-select: none;
+}
+
+.contact-buttons-container {
+  width: 40%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.contact-button {
+  width: 25px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  outline: 1px solid #000;
+}

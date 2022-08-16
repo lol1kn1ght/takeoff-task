@@ -1,30 +1,20 @@
 import { LoginForm } from "forms/login_form";
 import { RegisterForm } from "forms/register_form";
-import { Component, ReactNode } from "react";
+import { useState } from "react";
 import { display_type } from "types";
 import "css/Authorisation.css";
 
-type state_type = {
-  display: display_type;
-};
+export const Authorisation = () => {
+  const [display, set_display] = useState<display_type>("login");
 
-export class Authorisation extends Component {
-  state: state_type = {
-    display: "login",
+  const change_display = (display: display_type) => {
+    set_display(display);
   };
 
-  change_display(display: display_type) {
-    this.setState({
-      display,
-    });
+  switch (display) {
+    case "login":
+      return <LoginForm change_display={change_display} />;
+    case "register":
+      return <RegisterForm change_display={change_display} />;
   }
-
-  render(): ReactNode {
-    switch (this.state.display) {
-      case "login":
-        return <LoginForm change_display={this.change_display.bind(this)} />;
-      case "register":
-        return <RegisterForm />;
-    }
-  }
-}
+};

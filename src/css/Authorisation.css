@@ -77,15 +77,17 @@ input {
 }
 
 .authorisation-change-display:hover {
+  transition: color 0.3s;
   color: rgb(169, 169, 169);
   cursor: pointer;
 }
-
-.error {
-  background-color: rgb(255, 0, 0, 0.3);
+.authorisation-change-display:not(:hover) {
+  transition: color 0.3s;
+  color: default;
 }
 
 .authorisation-error-message {
+  height: 20px;
   color: rgb(255, 0, 0);
   font-size: 15px;
   width: max-content;
