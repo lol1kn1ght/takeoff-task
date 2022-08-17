@@ -6,6 +6,7 @@ export function get_userdata() {
   );
 
   return {
+    id,
     is_auth: !!id,
     contacts,
     password,

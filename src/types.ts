@@ -3,6 +3,7 @@ export type user_type = {
   username: number | null;
   password: string | null;
   contacts: contact_type[] | null;
+  is_auth: boolean;
 };
 
 export type contact_type = {

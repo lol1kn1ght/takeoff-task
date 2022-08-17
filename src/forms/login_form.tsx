@@ -5,21 +5,6 @@ import { useState } from "react";
 import { set_user } from "store/slices/user_slice";
 import { display_type, user_type } from "types";
 
-type field_type = {
-  value?: string;
-  wrong?: boolean;
-};
-
-type state_type = {
-  username: field_type;
-  password: field_type;
-  loading: false;
-  error_message?: string;
-  user_data?: user_type;
-};
-
-type elem_name_type = "username" | "password";
-
 type props_type = {
   change_display: (display: display_type) => void;
 };

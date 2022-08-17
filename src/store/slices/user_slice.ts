@@ -6,6 +6,7 @@ const initial_state: user_type = {
   id: null,
   password: null,
   username: null,
+  is_auth: false,
 };
 
 const user_slice = createSlice({
@@ -19,12 +20,14 @@ const user_slice = createSlice({
       state.id = payload.id;
       state.password = payload.password;
       state.username = payload.username;
+      state.is_auth = payload.is_auth;
     },
     remove_user(state) {
       state.contacts = null;
       state.id = null;
       state.password = null;
       state.username = null;
+      state.is_auth = false;
     },
   },
 });

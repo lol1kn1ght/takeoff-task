@@ -4,6 +4,5 @@ import { Navigate } from "react-router-dom";
 
 export const Home = () => {
   const { is_auth } = get_userdata();
-
   return is_auth ? <Navigate to={"/dashboard"} /> : <Authorisation />;
 };
